@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sellf_learn_1/pages/LoginPage.dart';
 import 'package:sellf_learn_1/utils/routes.dart';
-
-
-
 import 'pages/HomePage.dart';
 
 void main(){

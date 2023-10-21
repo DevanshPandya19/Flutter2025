@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:sellf_learn_1/widgets/drawer.dart';
-
-
-
-
 class HomePage extends StatelessWidget {
   final int days=30;
   final String name="Devansh";
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Catalog App"),
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text("Catalog App",style: TextStyle(color: Colors.black),),
         centerTitle: true,// centres the title
       ),
       body: Center(
