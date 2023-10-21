@@ -3,6 +3,7 @@ import 'package:sellf_learn_1/pages/LoginPage.dart';
 import 'package:sellf_learn_1/utils/routes.dart';
 
 
+
 import 'pages/HomePage.dart';
 
 void main(){
@@ -12,8 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext) {
     //bringVegetables(rupees: 50);
-    return MaterialApp(
 
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme:ThemeData(
         primarySwatch: Colors.purple,
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
       brightness: Brightness.dark
       ),
-      initialRoute: "/",
+      initialRoute: MyRoutes.HomeRoute,
       routes: {
         "/":(context)=>LoginPage(),
         MyRoutes.HomeRoute:(context)=>HomePage(),

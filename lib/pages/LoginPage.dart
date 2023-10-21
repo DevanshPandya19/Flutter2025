@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                         if (value!.isEmpty) {
                           return "Confirm Password cannot be empty";
                         } else if (value != password) {
-                          return "Passwords  not match";
+                          return "Passwords do  not match";
                         }
                         return null;
                       },
