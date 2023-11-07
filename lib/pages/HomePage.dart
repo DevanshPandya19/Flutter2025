@@ -17,22 +17,22 @@ class _HomePageState extends State<HomePage> {
 
   @override
   //void initstate() {
-    //super.initState();
-    //loadData();
+  //super.initState();
+  //loadData();
   //}
 
   //loadData() async {
-    //final catalogJson =
-      //  await rootBundle.loadString("Assests/files/catalog.json");
-    //final decodedData = jsonDecode(catalogJson);
-    //var productsData = decodedData["products"];
-    //CatalogModel.items= List.from(productsData)
-      // .map <Item>((item) => Item.fromMap(item)).toList();
-    //setState(() {});
+  //final catalogJson =
+  //  await rootBundle.loadString("Assests/files/catalog.json");
+  //final decodedData = jsonDecode(catalogJson);
+  //var productsData = decodedData["products"];
+  //CatalogModel.items= List.from(productsData)
+  // .map <Item>((item) => Item.fromMap(item)).toList();
+  //setState(() {});
   //}
 
   Widget build(BuildContext context) {
-     final dummyList = List.generate(50, (index) => CatalogModel.items[0]);
+    final dummyList = List.generate(50, (index) => CatalogModel.items[0]);
 
     return Scaffold(
       appBar: AppBar(
@@ -45,15 +45,36 @@ class _HomePageState extends State<HomePage> {
         ),
         centerTitle: true, // centres the title
       ),
-      body: ListView.builder(
-       itemCount: dummyList.length,
-       ///   itemCount: CatalogModel.items.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: dummyList[index],
-          //item: CatalogModel.items[index],
-            );
-          }),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 16,
+          crossAxisSpacing: 16
+        ),
+        itemBuilder: (context, index) {
+          final item = CatalogModel.items[index];
+          return Card(
+            clipBehavior: Clip.antiAlias,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            
+              child: GridTile(
+                header: Container(
+                    child: Text(item.name,style: TextStyle(color: Colors.white),),
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                  //  color: Colors.deepPurple
+
+                  ),
+                ),
+
+                  child: Image.network(item.image),
+                  footer: Text(item.price.toString()),
+              ));
+        },
+        itemCount: CatalogModel.items.length,
+      ),
+
+
       drawer: MyDrawer(),
     );
   }
